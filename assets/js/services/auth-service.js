@@ -277,19 +277,71 @@ export async function loginCustomer(email, password) {
         authData.idToken
     );
 
-    // Step 4: Check account status
+    // Step 4: Check customer role
+    if (profile.role !== "customer") {
+        throw new Error(
+            "This login is for customer accounts only."
+        );
+    }
+
+    // Step 5: Check account status
     if (!profile.isActive) {
         throw new Error(
             "Your account is inactive. Contact the administrator."
         );
     }
 
-    // Step 5: Save session
+    // Step 6: Save session
     saveUserSession(authData);
 
     return {
         ...profile,
         message: "Login successful."
+    };
+}
+
+export async function loginAdmin(email, password) {
+
+    // Step 1: Authenticate user
+    const authData = await loginUser(email, password);
+
+    // Step 2: Check email verification
+    const isVerified = await checkEmailVerification(
+        authData.idToken
+    );
+
+    if (!isVerified) {
+        throw new Error(
+            "Please verify your email before logging in."
+        );
+    }
+
+    // Step 3: Retrieve admin profile
+    const profile = await getUserProfile(
+        authData.localId,
+        authData.idToken
+    );
+
+    // Step 4: Verify admin role
+    if (profile.role !== "admin") {
+        throw new Error(
+            "Access denied. Admin accounts only."
+        );
+    }
+
+    // Step 5: Check account status
+    if (!profile.isActive) {
+        throw new Error(
+            "Your account is inactive. Contact the administrator."
+        );
+    }
+
+    // Step 6: Save session
+    saveUserSession(authData);
+
+    return {
+        ...profile,
+        message: "Admin login successful."
     };
 }
 
