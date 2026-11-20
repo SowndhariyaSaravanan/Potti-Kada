@@ -162,17 +162,6 @@ export async function checkEmailVerification(idToken) {
     return data.users[0].emailVerified;
 }
 
-export function saveUserSession(authData) {
-    const session = {
-        uid: authData.localId,
-        email: authData.email,
-        idToken: authData.idToken,
-        refreshToken: authData.refreshToken
-    };
-
-    sessionStorage.setItem("userSession", JSON.stringify(session));
-}
-
 export function getUserSession() {
     const session = sessionStorage.getItem("userSession");
 
