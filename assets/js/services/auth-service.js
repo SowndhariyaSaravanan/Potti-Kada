@@ -338,3 +338,8 @@ export function saveUserSession(authData) {
 
     sessionStorage.setItem("userSession", JSON.stringify(session));
 }
+
+export function handleLogout(redirectPath = "../../index.html") {
+    logoutUser();
+    window.location.href = redirectPath;
+}
