@@ -50,9 +50,7 @@ export async function getAllProducts() {
         );
     }
 
-    // Temporarily inspect the original Firestore response
-    console.log("Raw Firestore Products Response:", data);
-
+ 
     return (data.documents || []).map(convertFirestoreDocument);
 }
 

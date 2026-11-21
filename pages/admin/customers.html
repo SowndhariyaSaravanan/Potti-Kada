@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management - Admin</title>
+
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body>
+
+    <header class="admin-header customer-page-header">
+        <h1>Customer Management</h1>
+
+        <a href="dashboard.html" class="admin-back-link">
+            ← Back to Dashboard
+        </a>
+    </header>
+
+    <main class="admin-main">
+        <section class="inventory-section">
+
+            <div class="customer-heading">
+                <div>
+                    <h2>Customers</h2>
+                    <p>Manage customer accounts and credit limits.</p>
+                </div>
+
+                <div class="customer-count">
+                    <span id="customerCount">0</span>
+                    <small>Total Customers</small>
+                </div>
+            </div>
+
+            <div class="customer-toolbar">
+                <input type="search"
+                       id="customerSearch"
+                       placeholder="Search by ID, name, email or mobile...">
+            </div>
+
+            <p id="customerMessage" class="status-message"></p>
+
+            <div class="table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>Credit Limit</th>
+                            <th>Credit Used</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="customerTableBody">
+                        <tr>
+                            <td colspan="8">Loading customers...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <button id="previousPageBtn" disabled>Previous</button>
+                <span id="pageInfo">Page 0 of 0</span>
+                <button id="nextPageBtn" disabled>Next</button>
+            </div>
+
+        </section>
+    </main>
+
+    <script type="module" src="../../assets/js/admin/customers.js"></script>
+</body>
+</html>
