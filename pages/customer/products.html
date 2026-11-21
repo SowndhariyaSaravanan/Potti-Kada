@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Products</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body>
+
+    <header class="customer-header">
+        <div>
+            <h2>Online Shopping</h2>
+            <p>Discover products and shop with ease</p>
+        </div>
+
+        <div class="customer-header-actions">
+            <button id="cartToggle" class="customer-cart-button">
+                Cart (<span id="cartCount">0</span>)
+            </button>
+            <button id="logoutButton" class="secondary-button">
+                Logout
+            </button>
+        </div>
+    </header>
+
+    <main class="customer-page">
+
+        <section class="customer-welcome">
+            <h1>Explore Products</h1>
+            <p>Find your favourite products and add them to your cart.</p>
+        </section>
+
+        <section class="customer-filters">
+            <input type="search"
+                   id="searchInput"
+                   placeholder="Search products by name...">
+
+            <select id="categoryFilter">
+                <option value="">All Categories</option>
+            </select>
+
+            <button id="clearFilters" class="secondary-button">
+                Clear Filters
+            </button>
+        </section>
+
+        <p id="productMessage" class="customer-message"></p>
+
+        <section id="productGrid" class="customer-product-grid"></section>
+
+        <div class="customer-pagination">
+            <button id="previousPage" class="secondary-button">
+                Previous
+            </button>
+
+            <span id="pageInfo">Page 1</span>
+
+            <button id="nextPage" class="secondary-button">
+                Next
+            </button>
+        </div>
+
+        <section id="cartSection" class="customer-cart-section">
+            <div class="customer-cart-heading">
+                <h2>Your Shopping Cart</h2>
+                <button id="closeCart" class="secondary-button">
+                    Close
+                </button>
+            </div>
+
+            <div id="cartMessage" class="customer-message"></div>
+
+            <div class="customer-cart-table-wrapper">
+                <table class="customer-cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartItems"></tbody>
+                </table>
+            </div>
+
+            <div class="customer-cart-total">
+                <h3>Total: <span id="cartTotal">₹0.00</span></h3>
+            </div>
+        </section>
+
+    </main>
+
+    <script type="module" src="../../assets/js/app.js"></script>
+</body>
+</html>
