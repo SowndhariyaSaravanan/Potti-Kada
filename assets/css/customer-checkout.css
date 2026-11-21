@@ -1,0 +1,119 @@
+/* Customer cart and order history */
+.checkout-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 310px;
+    gap: 24px;
+    align-items: start;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+}
+
+.checkout-summary {
+    padding: 18px;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+    .checkout-summary h2 {
+        margin-top: 0;
+    }
+
+    .checkout-summary label {
+        display: block;
+        margin: 18px 0 7px;
+        font-weight: 600;
+    }
+
+    .checkout-summary select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        background: white;
+    }
+
+    .checkout-summary button {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+.checkout-grand-total {
+    font-size: 18px;
+}
+
+.checkout-hint {
+    color: #666;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+    .checkout-hint a {
+        color: #008b8b;
+        font-weight: 600;
+    }
+
+.orders-list {
+    display: grid;
+    gap: 20px;
+}
+
+.order-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+
+.order-card-heading, .order-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+    .order-card-heading h2 {
+        margin: 0 0 5px;
+        font-size: 19px;
+    }
+
+    .order-card-heading p {
+        margin: 0;
+        color: #777;
+        font-size: 13px;
+    }
+
+.order-status {
+    display: inline-block;
+    padding: 6px 11px;
+    border-radius: 20px;
+    background: #e3f8f8;
+    color: #006f6f;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.order-meta {
+    margin: 18px 0 8px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 850px) {
+    .checkout-panel {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .checkout-panel, .order-card {
+        padding: 13px;
+    }
+
+    .order-card-heading {
+        align-items: flex-start;
+    }
+}

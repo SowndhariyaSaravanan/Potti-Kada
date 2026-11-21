@@ -373,8 +373,12 @@ export async function getUserProfile(uid, idToken) {
         email: fields.email.stringValue,
         mobile: fields.mobile.stringValue,
         role: fields.role.stringValue,
-        creditLimit: Number(fields.creditLimit.integerValue),
-        creditUsed: Number(fields.creditUsed.integerValue),
+        creditLimit: Number(
+            fields.creditLimit?.integerValue ?? fields.creditLimit?.doubleValue ?? 0
+        ),
+        creditUsed: Number(
+            fields.creditUsed?.integerValue ?? fields.creditUsed?.doubleValue ?? 0
+        ),
         isActive: fields.isActive.booleanValue
     };
 }

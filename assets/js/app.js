@@ -424,5 +424,3 @@ async function initialize() {
 }
 
 initialize();
-
-initialize();

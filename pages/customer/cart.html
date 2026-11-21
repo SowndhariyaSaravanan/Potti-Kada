@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/customer-checkout.css">
+</head>
+<body>
+    <header class="customer-header">
+        <div>
+            <h2>Online Shopping</h2>
+            <p>Your shopping cart</p>
+        </div>
+        <nav class="customer-header-actions">
+            <a class="secondary-button" href="./products.html">Continue Shopping</a>
+            <a class="customer-cart-button" href="./orders.html">My Orders</a>
+        </nav>
+    </header>
+
+    <main class="customer-page">
+        <section class="customer-welcome">
+            <h1>Your Cart</h1>
+            <p>Review your items before placing your order.</p>
+        </section>
+
+        <p id="cartMessage" class="customer-message" role="status"></p>
+
+        <section class="checkout-panel">
+            <div class="customer-cart-table-wrapper">
+                <table class="customer-cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Unit Price</th>
+                            <th>Quantity</th>
+                            <th>Line Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartItems">
+                        <tr><td colspan="5" class="customer-empty">Loading cart...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="checkout-summary">
+                <h2>Order Summary</h2>
+                <p>Total items: <strong id="cartCount">0</strong></p>
+                <p class="checkout-grand-total">Total: <strong id="cartTotal">₹0.00</strong></p>
+
+                <div id="checkoutControls">
+                    <label for="paymentMethod">Payment Method</label>
+                    <select id="paymentMethod">
+                        <option value="cash">Cash</option>
+                        <option value="credit">Credit</option>
+                    </select>
+                    <p id="creditInfo" class="checkout-hint"></p>
+                    <button id="placeOrderButton" class="customer-cart-button" type="button">
+                        Place Order
+                    </button>
+                </div>
+
+                <p id="guestNotice" class="checkout-hint" hidden>
+                    You can browse and add items as a guest. Please
+                    <a href="../../login.html">sign in</a> to place your order.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="../../assets/js/customer/cart.js"></script>
+</body>
+</html>
