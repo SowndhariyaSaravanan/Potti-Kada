@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Reports | Online Shopping</title>
+
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body>
+
+    <header class="reports-header">
+        <h1>Admin Reports</h1>
+        <a href="dashboard.html" class="admin-back-link">
+            ← Back to Dashboard
+        </a>
+    </header>
+
+    <main class="reports-main">
+
+        <section class="report-filter">
+            <h2>Report Date Range</h2>
+
+            <div class="report-filter-controls">
+                <label>
+                    From:
+                    <input type="date" id="fromDate">
+                </label>
+
+                <label>
+                    To:
+                    <input type="date" id="toDate">
+                </label>
+
+                <button id="applyFilterBtn" type="button">
+                    Apply Filter
+                </button>
+
+                <button id="clearFilterBtn" type="button">
+                    Clear
+                </button>
+            </div>
+
+            <p id="reportMessage" role="status">
+                Loading reports...
+            </p>
+        </section>
+
+        <!-- CUSTOMER REPORTS -->
+        <section class="report-section">
+            <h2>1. Customer Reports</h2>
+
+            <h3>All Customers</h3>
+            <div class="report-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>Credit Limit</th>
+                            <th>Credit Used</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="allCustomersBody"></tbody>
+                </table>
+            </div>
+
+            <h3>Top 10 Customers by Purchase Amount</h3>
+            <div class="report-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Customer ID</th>
+                            <th>Customer Name</th>
+                            <th>Total Purchases</th>
+                        </tr>
+                    </thead>
+                    <tbody id="topCustomersBody"></tbody>
+                </table>
+            </div>
+
+            <h3>Cash and Credit Purchases</h3>
+            <div class="report-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Customer Name</th>
+                            <th>Cash Purchases</th>
+                            <th>Credit Purchases</th>
+                            <th>Total Purchases</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerPaymentBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- INVENTORY REPORTS -->
+        <section class="report-section">
+            <h2>2. Inventory Reports</h2>
+
+            <h3>Current Stock</h3>
+            <div class="report-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventoryBody"></tbody>
+                </table>
+            </div>
+
+            <h3>Category-wise Stock</h3>
+            <div class="report-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category ID</th>
+                            <th>Total Products</th>
+                            <th>Total Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody id="categoryStockBody"></tbody>
+                </table>
+            </div>
+
+            <div class="stock-report-grid">
+                <div>
+                    <h3>High Stock (Above 100)</h3>
+                    <div class="report-table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody id="highStockBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Low Stock (Below 15)</h3>
+                    <div class="report-table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lowStockBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SALES REPORTS -->
+        <section class="report-section">
+            <h2>3. Sales Reports</h2>
+
+            <h3>Sales Within Selected Date Range</h3>
+            <div class="report-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sale ID</th>
+                            <th>Order ID</th>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Customer ID</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
+                            <th>Payment</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="salesBody"></tbody>
+                </table>
+            </div>
+
+            <h3>Category-wise Sales</h3>
+            <div class="report-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category ID</th>
+                            <th>Items Sold</th>
+                            <th>Sales Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="categorySalesBody"></tbody>
+                </table>
+            </div>
+
+            <h3>Cash and Credit Sales</h3>
+            <div class="report-table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Payment Method</th>
+                            <th>Number of Items</th>
+                            <th>Total Sales</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paymentSalesBody"></tbody>
+                </table>
+            </div>
+
+            <div class="stock-report-grid">
+                <div>
+                    <h3>Top 10 Products</h3>
+                    <div class="report-table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity Sold</th>
+                                    <th>Revenue</th>
+                                </tr>
+                            </thead>
+                            <tbody id="topProductsBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Bottom 10 Products</h3>
+                    <div class="report-table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity Sold</th>
+                                    <th>Revenue</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bottomProductsBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <p class="report-total">
+                Total Sales: <strong id="totalSales">₹0.00</strong>
+            </p>
+        </section>
+
+    </main>
+
+    <script type="module" src="../../assets/js/admin/reports.js"></script>
+</body>
+</html>
