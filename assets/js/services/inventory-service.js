@@ -268,9 +268,14 @@ export async function updateProduct(productId, updatedData) {
             fields[key] = { doubleValue: value };
 
         } else {
-            if (typeof value !== "string" || !value.trim()) {
-                throw new Error(`${key} must be a non-empty string.`);
+            if (typeof value !== "string") {
+                throw new Error(`${key} must be a string.`);
             }
+
+            if (key !== "imageUrl" && !value.trim()) {
+                throw new Error(`${key} cannot be empty.`);
+            }
+
             fields[key] = { stringValue: value };
         }
     }
