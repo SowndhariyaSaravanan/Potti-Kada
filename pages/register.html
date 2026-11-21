@@ -4,65 +4,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Registration</title>
+    <title>Create Account | Potti kada</title>
+
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/auth.css">
+    <link rel="stylesheet" href="../assets/css/register.css">
 </head>
-<body>
 
-    <h1>Create Customer Account</h1>
+<body class="register-page">
 
-    <form id="registerForm">
+    <main class="register-container">
 
-        <label for="name">Full Name</label>
-        <input type="text" id="name" required>
+        <a href="../index.html" class="register-brand">
+            <span class="register-brand-icon">P</span>
+            Potti <strong>kada.</strong>
+        </a>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" required>
+        <section class="register-card">
 
-        <label for="mobile">Mobile Number</label>
-        <input type="tel" id="mobile" required>
+            <div class="register-heading">
+                <span class="register-eyebrow">WELCOME TO POTTI KADA</span>
+                <h1>Create your account.</h1>
+                <p>Join us and discover something lovely to shop.</p>
+            </div>
 
-        <label for="password">Password</label>
-        <input type="password" id="password" minlength="6" required>
+            <form id="registerForm">
 
-        <button type="submit">Register</button>
+                <div class="register-field">
+                    <label for="name">Full Name</label>
+                    <input type="text"
+                           id="name"
+                           placeholder="Enter your full name"
+                           required>
+                </div>
 
-        <p id="message"></p>
+                <div class="register-field">
+                    <label for="email">Email Address</label>
+                    <input type="email"
+                           id="email"
+                           placeholder="you@example.com"
+                           required>
+                </div>
 
-    </form>
+                <div class="register-field">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel"
+                           id="mobile"
+                           placeholder="Enter your mobile number"
+                           required>
+                </div>
+
+                <div class="register-field">
+                    <label for="password">Password</label>
+                    <input type="password"
+                           id="password"
+                           placeholder="Create a password"
+                           minlength="6"
+                           required>
+                    <small>Minimum 6 characters.</small>
+                </div>
+
+                <button type="submit" class="register-button">
+                    Create Account →
+                </button>
+
+                <p id="message" class="register-message" role="status"></p>
+
+            </form>
+
+            <div class="register-login-link">
+                Already have an account?
+                <a href="./login.html">Login here</a>
+            </div>
+
+        </section>
+
+        <p class="register-footer">
+            A little shopping goes a long way. ♡
+        </p>
+
+    </main>
 
     <script type="module">
-            // @ts-nocheck
+                // @ts-nocheck
 
-            import { registerCustomer } from "../assets/js/services/auth-service.js";
+                import { registerCustomer } from "../assets/js/services/auth-service.js";
 
-            const form = document.getElementById("registerForm");
-            const message = document.getElementById("message");
+                const form = document.getElementById("registerForm");
+                const message = document.getElementById("message");
 
-            form.addEventListener("submit", async (event) => {
-                event.preventDefault();
+                form.addEventListener("submit", async (event) => {
+                    event.preventDefault();
 
-                const name = document.getElementById("name").value.trim();
-                const email = document.getElementById("email").value.trim();
-                const mobile = document.getElementById("mobile").value.trim();
-                const password = document.getElementById("password").value;
+                    const name = document.getElementById("name").value.trim();
+                    const email = document.getElementById("email").value.trim();
+                    const mobile = document.getElementById("mobile").value.trim();
+                    const password = document.getElementById("password").value;
 
-                try {
-                    message.textContent = "Creating your account...";
+                    try {
+                        message.textContent = "Creating your account...";
 
-                    const result = await registerCustomer(
-                        name,
-                        email,
-                        password,
-                        mobile
-                    );
+                        const result = await registerCustomer(
+                            name,
+                            email,
+                            password,
+                            mobile
+                        );
 
-                    message.textContent = result.message;
-                    form.reset();
+                        message.textContent = result.message;
+                        form.reset();
 
-                } catch (error) {
-                    message.textContent = error.message;
-                }
-            });
+                    } catch (error) {
+                        message.textContent = error.message;
+                    }
+                });
     </script>
 
 </body>

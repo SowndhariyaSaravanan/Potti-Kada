@@ -1,14 +1,200 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Online Shopping</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potti kada | Your Everyday Store</title>
+
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+    <!-- Landing page styles -->
+    <link rel="stylesheet" href="./assets/css/index.css">
 </head>
-<body>
-  <h1>Online Shopping</h1>
-  <p>Welcome to our online shopping application.</p>
-  <script type="module" src="assets/js/app.js"></script>
+
+<body class="home-page">
+
+    <!-- NAVBAR -->
+    <header class="home-header">
+        <nav class="home-nav">
+
+            <a href="./index.html" class="store-logo">
+                Potti <span>kada</span><span class="logo-dot">.</span>
+            </a>
+
+            <div class="home-nav-links" id="homeNavLinks">
+                <a href="./pages/customer/products.html">Shop</a>
+                <a href="#why-shop">Why Potti kada?</a>
+            </div>
+
+            <div class="home-nav-actions">
+                <a href="./pages/login.html" class="nav-login">Login</a>
+                <a href="./pages/register.html" class="nav-signup">Sign Up</a>
+            </div>
+
+            <button class="mobile-menu-btn"
+                    id="mobileMenuBtn"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false">
+                ☰
+            </button>
+
+        </nav>
+    </header>
+
+
+    <!-- HERO SECTION -->
+    <main>
+
+        <section class="home-hero">
+
+            <div class="hero-content">
+
+                <span class="hero-tag">
+                    YOUR EVERYDAY SHOPPING DESTINATION
+                </span>
+
+                <h1>
+                    Little things.<br>
+                    <span>Big happiness.</span>
+                </h1>
+
+                <p class="hero-description">
+                    From everyday essentials to things you simply love,
+                    find what you need, add it to your cart, and shop
+                    with ease at Potti kada.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="./pages/customer/products.html"
+                       class="browse-btn">
+                        Browse Products <span>→</span>
+                    </a>
+
+                    <a href="./pages/register.html" class="hero-secondary-btn">
+                        Create an account
+                    </a>
+                </div>
+
+                <div class="hero-note">
+                    <span>✦</span>
+                    A little store for all your needs.
+                </div>
+
+            </div>
+
+
+            <div class="hero-visual">
+
+                <div class="hero-circle">
+
+                    <div class="hero-shopping-icon">
+                        🛍️
+                    </div>
+
+                    <div class="floating-item floating-item-one">
+                        🥫
+                    </div>
+
+                    <div class="floating-item floating-item-two">
+                        🧴
+                    </div>
+
+                    <div class="floating-item floating-item-three">
+                        🎁
+                    </div>
+
+                    <div class="hero-visual-text">
+                        <span>GOOD FINDS</span>
+                        <strong>HAPPY CARTS</strong>
+                    </div>
+
+                </div>
+
+                <div class="hero-sticker">
+                    SHOP<br>HAPPY!
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WHY SHOP WITH US -->
+        <section class="why-shop-section" id="why-shop">
+
+            <div class="section-heading">
+                <span>THE POTTI KADA WAY</span>
+                <h2>Shopping made simple.</h2>
+                <p>Everything you need for a smoother shopping experience.</p>
+            </div>
+
+            <div class="benefits-grid">
+
+                <article class="benefit-card">
+                    <div class="benefit-icon">🛒</div>
+                    <h3>Easy Shopping</h3>
+                    <p>Explore products and find your favourites without the hassle.</p>
+                </article>
+
+                <article class="benefit-card">
+                    <div class="benefit-icon">💳</div>
+                    <h3>Flexible Payments</h3>
+                    <p>Choose the available payment option that works for you.</p>
+                </article>
+
+                <article class="benefit-card">
+                    <div class="benefit-icon">📦</div>
+                    <h3>Order Tracking</h3>
+                    <p>Keep track of your purchases and revisit your order history.</p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- BOTTOM CTA -->
+        <section class="home-bottom-cta">
+
+            <div>
+                <span>READY TO EXPLORE?</span>
+                <h2>Your next favourite find is waiting.</h2>
+            </div>
+
+            <a href="./pages/customer/products.html">
+                Start Shopping →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="home-footer">
+
+        <a href="./index.html" class="store-logo footer-logo">
+            Potti <span>kada</span><span class="logo-dot">.</span>
+        </a>
+
+        <p>Your everyday shopping destination.</p>
+
+        <div class="footer-links">
+            <a href="./pages/customer/products.html">Shop</a>
+            <a href="./login.html">Login</a>
+            <a href="./register.html">Sign Up</a>
+        </div>
+
+        <p class="copyright">
+            © <span id="currentYear"></span> Potti kada. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- Landing page JavaScript -->
+    <script type="module" src="./assets/js/index.js"></script>
+
 </body>
 </html>

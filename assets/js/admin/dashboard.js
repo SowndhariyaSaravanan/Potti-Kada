@@ -6,6 +6,8 @@ import {
     deleteProduct
 } from "../services/inventory-service.js";
 
+import { logoutUser } from "../services/auth-service.js";
+
 // DOM elements
 const productTableBody = document.getElementById("productTableBody");
 const categoryFilter = document.getElementById("categoryFilter");
@@ -333,6 +335,26 @@ productTableBody.addEventListener("click", async event => {
         message.textContent = error.message;
     }
 });
+// Admin logout
+const logoutBtn = document.getElementById("logoutBtn");
 
+logoutBtn.addEventListener("click", async () => {
+    try {
+        logoutBtn.disabled = true;
+        logoutBtn.textContent = "Logging out...";
+
+        await logoutUser();
+
+        window.location.href = "../login.html";
+
+    } catch (error) {
+        console.error("Logout failed:", error);
+
+        message.textContent = "Unable to log out. Please try again.";
+
+        logoutBtn.disabled = false;
+        logoutBtn.textContent = "Logout";
+    }
+});
 // Initialize dashboard
 loadProducts();

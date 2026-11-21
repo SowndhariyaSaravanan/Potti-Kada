@@ -4,28 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Management - Admin</title>
+    <title>Customer Management | Potti kada</title>
 
     <link rel="stylesheet" href="../../assets/css/styles.css">
     <link rel="stylesheet" href="../../assets/css/admin.css">
+    <link rel="stylesheet" href="../../assets/css/admin-dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/admin-customers.css">
 </head>
-<body>
 
-    <header class="admin-header customer-page-header">
-        <h1>Customer Management</h1>
+<body class="admin-dashboard">
 
-        <a href="dashboard.html" class="admin-back-link">
+    <header class="admin-header">
+        <a href="../../index.html" class="admin-brand">
+            <span class="admin-brand-icon">P</span>
+            <span>Potti <strong>kada.</strong></span>
+            <small>ADMIN</small>
+        </a>
+
+        <a href="dashboard.html" class="customer-back-button">
             ← Back to Dashboard
         </a>
     </header>
 
     <main class="admin-main">
-        <section class="inventory-section">
+
+        <section class="admin-welcome">
+            <div>
+                <span class="admin-eyebrow">STORE MANAGEMENT</span>
+                <h1>Customer <span>Management.</span></h1>
+                <p>Manage customer accounts, credit limits and account status.</p>
+            </div>
+
+            <div class="admin-welcome-icon">👥</div>
+        </section>
+
+        <nav class="admin-navigation">
+            <a href="dashboard.html">Inventory</a>
+            <a href="customers.html" class="active">Customers</a>
+            <a href="reports.html">Reports</a>
+        </nav>
+
+        <section class="customers-panel">
 
             <div class="customer-heading">
                 <div>
-                    <h2>Customers</h2>
-                    <p>Manage customer accounts and credit limits.</p>
+                    <h2>Customer Accounts</h2>
+                    <p>View and manage registered customers.</p>
                 </div>
 
                 <div class="customer-count">
@@ -42,7 +66,7 @@
 
             <p id="customerMessage" class="status-message"></p>
 
-            <div class="table-container">
+            <div class="customer-table-wrapper">
                 <table class="admin-table">
                     <thead>
                         <tr>
@@ -66,12 +90,18 @@
             </div>
 
             <div class="pagination">
-                <button id="previousPageBtn" disabled>Previous</button>
+                <button id="previousPageBtn" disabled>← Previous</button>
                 <span id="pageInfo">Page 0 of 0</span>
-                <button id="nextPageBtn" disabled>Next</button>
+                <button id="nextPageBtn" disabled>Next →</button>
             </div>
 
         </section>
+
+        <footer class="admin-footer">
+            <span>Potti <strong>kada.</strong></span>
+            <p>Store Administration · Manage with care ♡</p>
+        </footer>
+
     </main>
 
     <script type="module" src="../../assets/js/admin/customers.js"></script>

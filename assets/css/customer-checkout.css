@@ -1,59 +1,239 @@
-/* Customer cart and order history */
+
+/* =========================================
+   POTTI KADA - CART & CHECKOUT
+========================================= */
+
+/* CHECKOUT LAYOUT */
+
 .checkout-panel {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 310px;
-    gap: 24px;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 25px;
     align-items: start;
+    padding: 25px;
     background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 22px;
+    border: 1px solid #f0e3d7;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(90, 57, 35, 0.06);
 }
 
+.checkout-section-heading {
+    margin-bottom: 18px;
+}
+
+    .checkout-section-heading h2 {
+        margin: 0 0 7px;
+        color: #49352b;
+        font-size: 21px;
+    }
+
+    .checkout-section-heading p {
+        margin: 0;
+        color: #947d6e;
+        font-size: 13px;
+    }
+
+/* CART TABLE */
+
+.customer-cart-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.customer-cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+    .customer-cart-table th,
+    .customer-cart-table td {
+        padding: 13px 11px;
+        border-bottom: 1px solid #f0e3d7;
+        text-align: left;
+    }
+
+    .customer-cart-table th {
+        background: #fdf3e9;
+        color: #704633;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .customer-cart-table td {
+        color: #5e493b;
+        font-size: 13px;
+    }
+
+    .customer-cart-table tbody tr:hover {
+        background: #fffaf5;
+    }
+
+.customer-empty {
+    padding: 30px 15px;
+    text-align: center;
+    color: #947d6e;
+}
+
+.cart-quantity-input {
+    width: 65px;
+    padding: 8px;
+    background: #fffaf3;
+    border: 1px solid #e8d8c9;
+    border-radius: 7px;
+    color: #49352b;
+}
+
+.customer-remove-button {
+    padding: 8px 12px;
+    background: #fff0eb;
+    color: #bd5037;
+    border: none;
+    border-radius: 7px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+    .customer-remove-button:hover {
+        background: #ffe0d5;
+    }
+
+/* ORDER SUMMARY */
+
 .checkout-summary {
-    padding: 18px;
-    border: 1px solid #e3e3e3;
-    border-radius: 8px;
-    background: #fafafa;
+    padding: 23px;
+    background: #fdf5ed;
+    border: 1px solid #f0dfcf;
+    border-radius: 12px;
 }
 
     .checkout-summary h2 {
-        margin-top: 0;
+        margin: 0 0 22px;
+        color: #49352b;
+        font-size: 23px;
     }
 
-    .checkout-summary label {
-        display: block;
-        margin: 18px 0 7px;
-        font-weight: 600;
-    }
-
-    .checkout-summary select {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        background: white;
-    }
-
-    .checkout-summary button {
-        width: 100%;
-        margin-top: 15px;
-    }
-
-.checkout-grand-total {
-    font-size: 18px;
+.summary-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 17px;
+    color: #806b5d;
+    font-size: 14px;
+    border-bottom: 1px solid #ead8c8;
 }
 
-.checkout-hint {
-    color: #666;
+    .summary-detail strong {
+        color: #49352b;
+    }
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 19px 0;
+    color: #49352b;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+    .summary-total strong {
+        color: #d96e3e;
+        font-size: 21px;
+    }
+
+/* PAYMENT */
+
+.checkout-summary label {
+    display: block;
+    margin: 10px 0 8px;
+    color: #704633;
     font-size: 13px;
-    line-height: 1.5;
+    font-weight: 700;
+}
+
+.checkout-summary select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    background: white;
+    color: #49352b;
+    border: 1px solid #e8d8c9;
+    border-radius: 8px;
+    font: inherit;
+    outline: none;
+}
+
+    .checkout-summary select:focus {
+        border-color: #df713f;
+        box-shadow: 0 0 0 3px rgba(223, 113, 63, 0.12);
+    }
+
+.checkout-hint {
+    color: #947d6e;
+    font-size: 12px;
+    line-height: 1.6;
 }
 
     .checkout-hint a {
-        color: #008b8b;
-        font-weight: 600;
+        color: #d96e3e;
+        font-weight: 700;
     }
+
+.place-order-button {
+    width: 100%;
+    margin-top: 17px;
+    padding: 14px;
+    background: #df713f;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+    .place-order-button:hover:not(:disabled) {
+        background: #c85d31;
+        transform: translateY(-2px);
+    }
+
+    .place-order-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+.checkout-security-note {
+    margin-top: 22px;
+    padding-top: 15px;
+    color: #947d6e;
+    border-top: 1px solid #ead8c8;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* HEADER NAVIGATION */
+
+.shop-nav-button {
+    display: inline-block;
+    padding: 11px 17px;
+    background: #f5e4d5;
+    color: #704633;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+    .shop-nav-button:hover {
+        background: #ecd2bc;
+    }
+
+/* =========================================
+   ORDER HISTORY
+========================================= */
 
 .orders-list {
     display: grid;
@@ -61,14 +241,15 @@
 }
 
 .order-card {
+    padding: 22px;
     background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+    border: 1px solid #f0e3d7;
+    border-radius: 13px;
+    box-shadow: 0 4px 15px rgba(90, 57, 35, 0.06);
 }
 
-.order-card-heading, .order-meta {
+.order-card-heading,
+.order-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -76,44 +257,235 @@
 }
 
     .order-card-heading h2 {
-        margin: 0 0 5px;
+        margin: 0 0 6px;
+        color: #49352b;
         font-size: 19px;
     }
 
     .order-card-heading p {
         margin: 0;
-        color: #777;
+        color: #947d6e;
         font-size: 13px;
     }
 
 .order-status {
     display: inline-block;
-    padding: 6px 11px;
+    padding: 7px 12px;
+    background: #f5e4d5;
+    color: #a65331;
     border-radius: 20px;
-    background: #e3f8f8;
-    color: #006f6f;
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 11px;
+    font-weight: 800;
     text-transform: uppercase;
 }
 
 .order-meta {
     margin: 18px 0 8px;
     flex-wrap: wrap;
+    color: #806b5d;
 }
+
+/* RESPONSIVE */
 
 @media (max-width: 850px) {
     .checkout-panel {
         grid-template-columns: 1fr;
     }
+
+    .checkout-summary {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
 
 @media (max-width: 600px) {
-    .checkout-panel, .order-card {
-        padding: 13px;
+    .checkout-panel,
+    .order-card {
+        padding: 14px;
     }
 
     .order-card-heading {
         align-items: flex-start;
+    }
+
+    .customer-cart-table th,
+    .customer-cart-table td {
+        padding: 9px;
+        font-size: 12px;
+    }
+
+    .shop-header-actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+        .shop-header-actions a {
+            flex: 1;
+            text-align: center;
+        }
+}
+
+
+/* =========================================
+   POTTI KADA - ORDER HISTORY PAGE
+========================================= */
+
+.orders-section {
+    margin: 25px 0;
+}
+
+.orders-section-heading {
+    margin-bottom: 22px;
+}
+
+    .orders-section-heading h2 {
+        margin: 0 0 8px;
+        color: #49352b;
+        font-size: 25px;
+    }
+
+    .orders-section-heading p {
+        margin: 0;
+        color: #947d6e;
+        font-size: 14px;
+    }
+
+/* ORDER LIST */
+
+.orders-list {
+    display: grid;
+    gap: 20px;
+}
+
+/* ORDER CARD */
+
+.order-card {
+    padding: 23px;
+    background: #fff;
+    border: 1px solid #f0e3d7;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(90, 57, 35, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .order-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 9px 22px rgba(90, 57, 35, 0.1);
+    }
+
+.order-card-heading,
+.order-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+    .order-card-heading h2 {
+        margin: 0 0 7px;
+        color: #49352b;
+        font-size: 19px;
+    }
+
+    .order-card-heading p {
+        margin: 0;
+        color: #947d6e;
+        font-size: 13px;
+    }
+
+.order-meta {
+    margin: 20px 0 12px;
+    padding: 15px 0;
+    flex-wrap: wrap;
+    border-top: 1px solid #f0e3d7;
+    border-bottom: 1px solid #f0e3d7;
+    color: #806b5d;
+    font-size: 13px;
+}
+
+/* ORDER STATUS */
+
+.order-status {
+    display: inline-block;
+    padding: 7px 13px;
+    background: #f5e4d5;
+    color: #a65331;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* ORDER DETAILS - TABLES */
+
+.order-card table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+.order-card th,
+.order-card td {
+    padding: 12px;
+    border-bottom: 1px solid #f0e3d7;
+    text-align: left;
+    font-size: 13px;
+}
+
+.order-card th {
+    background: #fdf3e9;
+    color: #704633;
+}
+
+.order-card td {
+    color: #5e493b;
+}
+
+/* ORDER TOTAL */
+
+.order-card h3 {
+    margin-top: 18px;
+    color: #49352b;
+}
+
+    .order-card h3 strong {
+        color: #d96e3e;
+    }
+
+/* EMPTY STATE */
+
+.orders-list .customer-empty {
+    padding: 45px 20px;
+    background: white;
+    border: 1px dashed #e5cbb6;
+    border-radius: 12px;
+    text-align: center;
+    color: #947d6e;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+    .order-card {
+        padding: 15px;
+    }
+
+    .order-card-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .order-meta {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .order-card table {
+        min-width: 500px;
+    }
+
+    .order-card {
+        overflow-x: auto;
     }
 }

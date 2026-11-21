@@ -8,6 +8,7 @@ import {
     getUserProfile
 } from "../services/auth-service.js";
 import { placeOrder } from "../services/order-service.js";
+import { sendOrderConfirmation } from "../services/email-service.js";
 
 const $ = id => document.getElementById(id);
 let cart = [];
@@ -126,11 +127,30 @@ $("placeOrderButton").addEventListener("click", async () => {
     try {
         button.disabled = true;
         button.textContent = "Placing Order...";
+
         const result = await placeOrder($("paymentMethod").value);
-        message(`Order ${result.orderId} placed successfully. Total: ${currency(result.totalAmount)}.`);
+
+        // Order is already safely committed to Firestore.
+        // Email failure must not undo the successful order.
         cart = [];
         renderCart();
-        window.location.href = `./orders.html?placed=${encodeURIComponent(result.orderId)}`;
+
+        try {
+            await sendOrderConfirmation(result, {
+                name: profile.name,
+                email: profile.email
+            });
+            console.log("Order confirmation email sent.");
+        } catch (emailError) {
+            console.error("ORDER WAS PLACED, BUT EMAIL FAILED!");
+            console.error("Error message:", emailError.message);
+            console.error("Full error:", emailError);
+            alert("Order placed successfully, but email failed: " + emailError.message);
+        }
+
+        window.location.href =
+            `./orders.html?placed=${encodeURIComponent(result.orderId)}`;
+
     } catch (error) {
         message(error.message, true);
         button.disabled = false;

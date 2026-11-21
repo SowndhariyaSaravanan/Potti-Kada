@@ -4,178 +4,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Online Shopping</title>
+    <title>Login | Potti kada</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #f4f6f8;
-            padding: 20px;
-        }
-
-        .login-container {
-            width: 100%;
-            max-width: 420px;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 10px;
-            color: #222;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #777;
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 15px;
-        }
-
-            input:focus {
-                outline: none;
-                border-color: #00bcbc;
-                box-shadow: 0 0 0 2px rgba(0, 188, 188, 0.12);
-            }
-
-        .forgot-password {
-            display: block;
-            text-align: right;
-            margin-top: 10px;
-            color: #008f8f;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        button {
-            width: 100%;
-            padding: 13px;
-            background: #00bcbc;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-            button:hover {
-                background: #009e9e;
-            }
-
-            button:disabled {
-                background: #999;
-                cursor: not-allowed;
-            }
-
-        .error-message {
-            display: none;
-            padding: 12px;
-            margin-bottom: 20px;
-            background: #ffeaea;
-            color: #c62828;
-            border-radius: 6px;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        .register-link {
-            text-align: center;
-            margin-top: 25px;
-            color: #666;
-            font-size: 14px;
-        }
-
-            .register-link a {
-                color: #008f8f;
-                text-decoration: none;
-                font-weight: bold;
-            }
-    </style>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/auth.css">
 </head>
 
-<body>
+<body class="auth-page">
 
-    <main class="login-container">
+    <main class="auth-wrapper">
 
-        <h1>Welcome Back!</h1>
-        <p class="subtitle">Login to your Online Shopping account</p>
+        <!-- LEFT BRANDING SECTION -->
+        <section class="auth-branding">
 
-        <div id="errorMessage"
-             class="error-message"
-             role="alert"
-             aria-live="polite">
-        </div>
+            <a href="../index.html" class="store-logo">
+                Potti <span>kada</span><span class="logo-dot">.</span>
+            </a>
 
-        <form id="loginForm">
+            <div class="auth-brand-content">
+                <span class="auth-tag">WELCOME BACK!</span>
 
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email"
-                       id="email"
-                       name="email"
-                       placeholder="Enter your email"
-                       autocomplete="username"
-                       required>
+                <h1>
+                    Good to see<br>
+                    <span>you again.</span>
+                </h1>
+
+                <p>
+                    Your favourite finds are just a login away.
+                    Sign in and continue exploring everything
+                    Potti kada has to offer.
+                </p>
+
+                <div class="auth-decoration">
+                    <div class="auth-decoration-circle">
+                        🛍️
+                    </div>
+                    <div class="auth-floating-item">🧡</div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password"
-                       id="password"
-                       name="password"
-                       placeholder="Enter your password"
-                       autocomplete="current-password"
-                       required>
+            <p class="auth-brand-footer">
+                Your everyday shopping destination.
+            </p>
 
-                <a href="forgot-password.html" class="forgot-password">
-                    Forgot Password?
+        </section>
+
+
+        <!-- LOGIN FORM SECTION -->
+        <section class="auth-form-section">
+
+            <div class="auth-form-container">
+
+                <a href="../index.html" class="auth-back-link">
+                    ← Back to home
                 </a>
+
+                <div class="auth-heading">
+                    <span>LET'S GET YOU IN</span>
+                    <h2>Welcome back!</h2>
+                    <p>Enter your details to access your account.</p>
+                </div>
+
+                <div id="errorMessage"
+                     class="error-message"
+                     role="alert"
+                     aria-live="polite">
+                </div>
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+
+                        <input type="email"
+                               id="email"
+                               name="email"
+                               placeholder="you@example.com"
+                               autocomplete="username"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+
+                        <input type="password"
+                               id="password"
+                               name="password"
+                               placeholder="Enter your password"
+                               autocomplete="current-password"
+                               required>
+
+                        <a href="./forgot-password.html"
+                           class="forgot-password">
+                            Forgot Password?
+                        </a>
+                    </div>
+
+                    <button type="submit" id="loginButton">
+                        Login to your account <span>→</span>
+                    </button>
+
+                </form>
+
+                <div class="auth-divider">
+                    <span>NEW TO POTTI KADA?</span>
+                </div>
+
+                <p class="register-link">
+                    Don't have an account?
+                    <a href="./register.html">Create an account</a>
+                </p>
+
+                <p class="auth-security-note">
+                    🔒 Your account details are securely handled.
+                </p>
+
             </div>
 
-            <button type="submit" id="loginButton">
-                Login
-            </button>
-
-        </form>
-
-        <p class="register-link">
-            Don't have an account?
-            <a href="register.html">Register Here</a>
-        </p>
+        </section>
 
     </main>
+
 
 
 
@@ -187,44 +136,63 @@
 
             const ADMIN_EMAIL = "sowndhariyasugan@gmail.com";
 
+            // Get HTML elements
             const loginForm = document.getElementById("loginForm");
             const emailInput = document.getElementById("email");
             const passwordInput = document.getElementById("password");
             const loginButton = document.getElementById("loginButton");
 
-            // Validate HTML elements
-            if (
-                !(loginForm instanceof HTMLFormElement) ||
-                !(emailInput instanceof HTMLInputElement) ||
-                !(passwordInput instanceof HTMLInputElement) ||
-                !(loginButton instanceof HTMLButtonElement)
-            ) {
-                throw new Error("Login page elements are missing or invalid.");
+            // Validate element types and existence
+            if (!(loginForm instanceof HTMLFormElement)) {
+                throw new Error("Login form not found.");
             }
 
-            // Display an error message
-            function displayError(message = "") {
-                const errorElement = document.getElementById("errorMessage");
+            if (!(emailInput instanceof HTMLInputElement)) {
+                throw new Error("Email input not found.");
+            }
 
-                if (!(errorElement instanceof HTMLDivElement)) {
+            if (!(passwordInput instanceof HTMLInputElement)) {
+                throw new Error("Password input not found.");
+            }
+
+            if (!(loginButton instanceof HTMLButtonElement)) {
+                throw new Error("Login button not found.");
+            }
+
+            // Get error element safely whenever required
+            function getErrorElement() {
+                const element = document.getElementById("errorMessage");
+
+                if (!(element instanceof HTMLDivElement)) {
                     console.error("Error message element not found.");
-                    return;
+                    return null;
                 }
 
-                errorElement.textContent = message;
-                errorElement.style.display = "block";
+                return element;
             }
 
-            // Clear the error message
-            function clearError() {
-                const errorElement = document.getElementById("errorMessage");
+            // Display error message
+            function displayError(message = "") {
+                const element = getErrorElement();
 
-                if (!(errorElement instanceof HTMLDivElement)) {
+                if (!element) {
                     return;
                 }
 
-                errorElement.textContent = "";
-                errorElement.style.display = "none";
+                element.textContent = message;
+                element.style.display = "block";
+            }
+
+            // Clear error message
+            function clearError() {
+                const element = getErrorElement();
+
+                if (!element) {
+                    return;
+                }
+
+                element.textContent = "";
+                element.style.display = "none";
             }
 
             // Convert Firebase errors into readable messages
@@ -253,18 +221,6 @@
                 }
             }
 
-            // Extract a readable error code from any thrown value
-            function extractErrorCode(error = new Error()) {
-                if (error instanceof TypeError) {
-                    return "NETWORK_ERROR";
-                }
-
-                if (error instanceof Error) {
-                    return error.message;
-                }
-
-                return "UNKNOWN_ERROR";
-            }
 
             // Handle login submission
             loginForm.addEventListener("submit", async (event) => {
@@ -285,28 +241,29 @@
                         // Authenticate administrator
                         await loginAdmin(email, password);
 
-                        window.location.href = "admin/dashboard.html";
+                        window.location.href = "./admin/dashboard.html";
 
                     } else {
 
                         // Authenticate customer
                         await loginCustomer(email, password);
 
-                        window.location.href = "customer/products.html";
+                        window.location.href = "./customer/products.html";
                     }
 
                 } catch {
 
-                    // Read the most recent error without an untyped catch parameter
-                    const errorCode = extractErrorCode();
+                    console.error("Login failed.");
 
-                    console.error("Login failed:", errorCode);
-                    displayError(getLoginError(errorCode));
+                    displayError(
+                        "Login failed. Please check your email and password and try again."
+                    );
 
                 } finally {
 
                     loginButton.disabled = false;
-                    loginButton.textContent = "Login";
+                    loginButton.innerHTML =
+                        'Login to your account <span>→</span>';
                 }
             });
     </script>

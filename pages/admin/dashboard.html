@@ -4,39 +4,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | Online Shopping</title>
-    <link rel="stylesheet" href="../../assets/css/styles.css">
-    <link rel="stylesheet" href="../../assets/css/admin.css">
-</head>
-<body>
+    <title>Admin Dashboard | Potti kada</title>
 
-    <header>
-        <h1>Online Shopping - Admin Dashboard</h1>
+    <!-- Common styles -->
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+
+    <!-- Admin styles -->
+    <link rel="stylesheet" href="../../assets/css/admin.css">
+
+    <!-- Potti kada dashboard theme -->
+    <link rel="stylesheet" href="../../assets/css/admin-dashboard.css">
+</head>
+
+<body class="admin-dashboard">
+
+    <header class="admin-header">
+        <a href="../../index.html" class="admin-brand">
+            <span class="admin-brand-icon">P</span>
+            <span>Potti <strong>kada.</strong></span>
+            <small>ADMIN</small>
+        </a>
+
         <button id="logoutBtn" type="button">Logout</button>
     </header>
 
-    <main>
+    <main class="admin-main">
 
-        <a href="customers.html">Manage Customers</a>
-
-        <a href="reports.html">View Reports</a>
-
-        <section id="inventorySection">
-            <h2>Inventory Management</h2>
-
+        <section class="admin-welcome">
             <div>
-                <button id="addProductBtn" type="button">Add Product</button>
+                <span class="admin-eyebrow">STORE MANAGEMENT</span>
+                <h1>Admin <span>Dashboard.</span></h1>
+                <p>Manage your products, customers and store performance.</p>
+            </div>
 
-                <label for="categoryFilter">Filter by category:</label>
+            <div class="admin-welcome-icon">📦</div>
+        </section>
+
+        <nav class="admin-navigation">
+            <a href="dashboard.html" class="active">Inventory</a>
+            <a href="customers.html">Manage Customers</a>
+            <a href="reports.html">View Reports</a>
+        </nav>
+
+        <section id="inventorySection" class="admin-inventory">
+
+            <div class="inventory-heading">
+                <div>
+                    <h2>Inventory Management</h2>
+                    <p>Add, update and monitor your store products.</p>
+                </div>
+
+                <button id="addProductBtn" type="button" class="admin-primary-button">
+                    + Add Product
+                </button>
+            </div>
+
+            <div class="inventory-toolbar">
+                <label for="categoryFilter">Filter by category</label>
+
                 <select id="categoryFilter">
                     <option value="">All Categories</option>
                 </select>
             </div>
 
-            <div id="productFormContainer" hidden>
+            <div id="productFormContainer" hidden class="admin-form-container">
+
                 <h3 id="formTitle">Add Product</h3>
 
                 <form id="productForm">
+
                     <label for="productId">Product ID</label>
                     <input id="productId" name="productId" required>
 
@@ -58,37 +94,62 @@
                     <label for="productImage">Image URL</label>
                     <input id="productImage" name="imageUrl" type="url">
 
-                    <button type="submit">Save Product</button>
-                    <button id="cancelFormBtn" type="button">Cancel</button>
+                    <div class="admin-form-actions">
+                        <button type="submit" class="admin-primary-button">
+                            Save Product
+                        </button>
+
+                        <button id="cancelFormBtn" type="button" class="admin-cancel-button">
+                            Cancel
+                        </button>
+                    </div>
+
                 </form>
             </div>
 
-            <p id="message" role="status"></p>
+            <p id="message" role="status" class="admin-message"></p>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Image</th>
-                        <th>Title</th>
-                        <th>Category</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="productTableBody"></tbody>
-            </table>
+            <div class="admin-table-wrapper">
+                <table class="admin-product-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
 
-            <div>
-                <button id="previousPageBtn" type="button" disabled>Previous</button>
-                <span id="pageInfo">Page 1</span>
-                <button id="nextPageBtn" type="button" disabled>Next</button>
+                    <tbody id="productTableBody"></tbody>
+                </table>
             </div>
+
+            <div class="admin-pagination">
+                <button id="previousPageBtn" type="button" disabled>
+                    ← Previous
+                </button>
+
+                <span id="pageInfo">Page 1</span>
+
+                <button id="nextPageBtn" type="button" disabled>
+                    Next →
+                </button>
+            </div>
+
         </section>
+
+        <footer class="admin-footer">
+            <span>Potti <strong>kada.</strong></span>
+            <p>Store Administration · Manage with care ♡</p>
+        </footer>
+
     </main>
 
     <script type="module" src="../../assets/js/admin/dashboard.js"></script>
+
 </body>
 </html>

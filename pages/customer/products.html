@@ -1,52 +1,74 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Products</title>
+    <title>Shop Products | Potti kada</title>
+
     <link rel="stylesheet" href="../../assets/css/styles.css">
-    <link rel="stylesheet" href="../../assets/css/admin.css">
+    <link rel="stylesheet" href="../../assets/css/customer-products.css">
 </head>
-<body>
 
-    <header class="customer-header">
-        <div>
-            <h2>Online Shopping</h2>
-            <p>Discover products and shop with ease</p>
-        </div>
+<body class="products-page">
 
-        <div class="customer-header-actions">
-            <button id="cartToggle" class="customer-cart-button">
-                Cart (<span id="cartCount">0</span>)
+    <header class="shop-header">
+        <a href="../../index.html" class="shop-brand">
+            <span class="brand-icon">P</span>
+            <span>Potti <strong>kada.</strong></span>
+        </a>
+
+        <div class="shop-header-actions">
+            <button id="cartToggle" class="shop-cart-button">
+                <span>🛒</span> Cart
+                (<span id="cartCount">0</span>)
             </button>
-            <button id="logoutButton" class="secondary-button">
+
+            <button id="logoutButton" class="shop-logout-button">
                 Logout
             </button>
         </div>
     </header>
 
-    <main class="customer-page">
+    <main class="shop-main">
 
-        <section class="customer-welcome">
-            <h1>Explore Products</h1>
-            <p>Find your favourite products and add them to your cart.</p>
+        <section class="shop-welcome">
+            <div>
+                <span class="shop-eyebrow">A LITTLE SOMETHING FOR YOU</span>
+                <h1>Find your next <span>favourite.</span></h1>
+                <p>Good finds, lovely prices, and a little shopping happiness.</p>
+            </div>
+
+            <div class="shop-welcome-decoration">🛍️</div>
         </section>
 
-        <a href="cart.html">My Cart</a>
-        <a href="orders.html">My Orders</a>
+        <nav class="shop-navigation">
+            <a href="products.html" class="active">Shop Products</a>
+            <a href="cart.html">My Cart</a>
+            <a href="orders.html">My Orders</a>
+        </nav>
 
-        <section class="customer-filters">
-            <input type="search"
-                   id="searchInput"
-                   placeholder="Search products by name...">
+        <section class="shop-toolbar">
+            <div class="shop-toolbar-heading">
+                <div>
+                    <h2>Explore our collection</h2>
+                    <p>Something nice is waiting for you.</p>
+                </div>
+            </div>
 
-            <select id="categoryFilter">
-                <option value="">All Categories</option>
-            </select>
+            <div class="customer-filters">
+                <input type="search"
+                       id="searchInput"
+                       placeholder="Search products by name...">
 
-            <button id="clearFilters" class="secondary-button">
-                Clear Filters
-            </button>
+                <select id="categoryFilter">
+                    <option value="">All Categories</option>
+                </select>
+
+                <button id="clearFilters" class="shop-clear-button">
+                    Clear Filters
+                </button>
+            </div>
         </section>
 
         <p id="productMessage" class="customer-message"></p>
@@ -54,22 +76,27 @@
         <section id="productGrid" class="customer-product-grid"></section>
 
         <div class="customer-pagination">
-            <button id="previousPage" class="secondary-button">
-                Previous
+            <button id="previousPage" class="pagination-button">
+                ← Previous
             </button>
 
             <span id="pageInfo">Page 1</span>
 
-            <button id="nextPage" class="secondary-button">
-                Next
+            <button id="nextPage" class="pagination-button">
+                Next →
             </button>
         </div>
 
         <section id="cartSection" class="customer-cart-section">
+
             <div class="customer-cart-heading">
-                <h2>Your Shopping Cart</h2>
-                <button id="closeCart" class="secondary-button">
-                    Close
+                <div>
+                    <span class="shop-eyebrow">YOUR PICKS</span>
+                    <h2>Your Shopping Cart</h2>
+                </div>
+
+                <button id="closeCart" class="shop-clear-button">
+                    Close ✕
                 </button>
             </div>
 
@@ -86,6 +113,7 @@
                             <th>Action</th>
                         </tr>
                     </thead>
+
                     <tbody id="cartItems"></tbody>
                 </table>
             </div>
@@ -93,10 +121,19 @@
             <div class="customer-cart-total">
                 <h3>Total: <span id="cartTotal">₹0.00</span></h3>
             </div>
+
         </section>
+
+        <footer class="shop-footer">
+            <a href="../../index.html" class="shop-brand">
+                Potti <strong>kada.</strong>
+            </a>
+            <p>A little shopping goes a long way. ♡</p>
+        </footer>
 
     </main>
 
     <script type="module" src="../../assets/js/app.js"></script>
+
 </body>
 </html>
