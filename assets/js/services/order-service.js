@@ -234,10 +234,14 @@ export async function placeOrder(paymentMethod) {
                 fields: {
                     creditUsed: { doubleValue: newCreditUsed },
                     updatedAt: { timestampValue: createdAt }
-                },
-                updateMask: { fieldPaths: ["creditUsed", "updatedAt"] }
+                }
             },
-            currentDocument: { updateTime: userDocument.updateTime }
+            updateMask: {
+                fieldPaths: ["creditUsed", "updatedAt"]
+            },
+            currentDocument: {
+                updateTime: userDocument.updateTime
+            }
         });
     }
 
