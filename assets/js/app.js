@@ -1,6 +1,6 @@
 
 import {
-    getValidUserSession,
+    
     handleLogout
 } from "./services/auth-service.js";
 
@@ -413,13 +413,7 @@ $("logoutButton").addEventListener("click", () => {
 
 async function initialize() {
     try {
-        const session = await getValidUserSession();
-
-        if (!session) {
-            window.location.href = "../../login.html";
-            return;
-        }
-
+        // No login check — guests can browse and add products to cart.
         await Promise.all([
             loadProducts(),
             refreshCart()
@@ -428,5 +422,7 @@ async function initialize() {
         showProductMessage(error.message, true);
     }
 }
+
+initialize();
 
 initialize();

@@ -1,7 +1,7 @@
 
 import { FIRESTORE_URL } from "../firebase/firebase-config.js";
-import { getValidUserSession } from "./auth-service.js";
 
+// Decode Firestore field values
 function decodeValue(value) {
     if (!value) return null;
 
@@ -15,6 +15,7 @@ function decodeValue(value) {
     return null;
 }
 
+// Convert a Firestore product document into a JavaScript object
 function decodeProduct(document) {
     const fields = document.fields || {};
 
@@ -30,62 +31,52 @@ function decodeProduct(document) {
     };
 }
 
-async function getHeaders() {
-    const session = await getValidUserSession();
-
-    if (!session) {
-        throw new Error("Please log in to continue.");
-    }
-
-    return {
-        Authorization: `Bearer ${session.idToken}`
-    };
-}
-
-export async function getAllProducts() {
-    const headers = await getHeaders();
-
-    const response = await fetch(
-        `${FIRESTORE_URL}/products?pageSize=1000`,
-        { headers }
-    );
-
+// No authentication headers are needed for public product reads
+async function fetchProducts(url, errorMessage) {
+    const response = await fetch(url);
     const data = await response.json();
 
     if (!response.ok) {
         throw new Error(
-            data.error?.message || "Unable to load products."
+            data.error?.message || errorMessage
         );
     }
+
+    return data;
+}
+
+// Get all products
+export async function getAllProducts() {
+    const data = await fetchProducts(
+        `${FIRESTORE_URL}/products?pageSize=1000`,
+        "Unable to load products."
+    );
 
     return (data.documents || []).map(decodeProduct);
 }
 
+// Get only active products
 export async function getActiveProducts() {
     const products = await getAllProducts();
 
     return products.filter(product => product.isActive);
 }
 
+// Get one product using its document ID
 export async function getProductById(productId) {
-    const headers = await getHeaders();
-
-    const response = await fetch(
-        `${FIRESTORE_URL}/products/${encodeURIComponent(productId)}`,
-        { headers }
-    );
-
-    const data = await response.json();
-
-    if (!response.ok) {
-        throw new Error(
-            data.error?.message || "Product not found."
-        );
+    if (!productId) {
+        throw new Error("Product ID is required.");
     }
+
+    const data = await fetchProducts(
+        `${FIRESTORE_URL}/products/${encodeURIComponent(productId)}`,
+        "Product not found."
+    );
 
     return decodeProduct(data);
 }
 
+// Get unique categories from active products
 export async function getProductCategories() {
     const products = await getActiveProducts();
 
